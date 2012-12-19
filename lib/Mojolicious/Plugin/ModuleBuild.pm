@@ -87,7 +87,7 @@ Mojolicious::Plugin::ModuleBuild - Easy Module::Build configuration for Mojolici
 
 =head1 DESCRIPTION
 
-L<Mojolicious> applications work nicely from the current directory, but once the app is bundled from installation some of the configuration gets a little bit tricky. Some examples are shown for the L<ExtUtils::MakeMaker> toolchain, though the process is still rather involved. When using L<Module::Build> this module handles all the configuration for you (provided you follow a proscribed directory tree)!
+L<Mojolicious> applications work nicely from a working directory, but once the app is bundled for installation some of the configuration gets a little bit tricky. Some examples are shown for the L<ExtUtils::MakeMaker> toolchain, though the process is still rather involved. When using L<Module::Build> this module handles all the configuration for you (provided you follow a proscribed directory tree)!
 
 =head1 DIRECTORY STRUCTURE
 
