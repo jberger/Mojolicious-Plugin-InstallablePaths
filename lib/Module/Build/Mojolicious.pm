@@ -43,6 +43,10 @@ Module::Build::Mojolicious
  # Build.PL
  use Module::Build::Mojolicious;
  my $builder = Module::Build::Mojolicious->new(
+   configure_requires => {
+     'Module::Build::Mojolicious' => 0,
+     'Module::Build' => 0.38,
+   },
    ...
  );
  $builder->create_build_script;
@@ -50,6 +54,8 @@ Module::Build::Mojolicious
 =head1 DESCRIPTION
 
 A subclass of L<Module::Build> for use with L<Mojolicious>. There are no additional API features beyond the base class. See L<Mojolicious::Plugin::ModuleBuild> for more documentation.
+
+Note that you should add it to the `configure_requires` key as you should for any module used in a `Build.PL` file.
 
 =head1 SOURCE REPOSITORY
 

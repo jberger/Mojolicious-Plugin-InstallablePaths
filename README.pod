@@ -17,6 +17,10 @@ Mojolicious::Plugin::ModuleBuild - Easy Module::Build configuration for Mojolici
  # Build.PL
  use Module::Build::Mojolicious;
  my $builder = Module::Build::Mojolicious->new(
+   configure_requires => {
+     'Module::Build::Mojolicious' => 0,
+     'Module::Build' => 0.38,
+   },
    ...
  );
  $builder->create_build_script;
@@ -66,9 +70,15 @@ Included with L<Mojolicious::Plugin::ModuleBuild> is a subclass of L<Module::Bui
 
  use Module::Build::Mojolicious;
  my $builder = Module::Build::Mojolicious->new(
+   configure_requires => {
+     'Module::Build::Mojolicious' => 0,
+     'Module::Build' => 0.38,
+   },
    ...
  );
  $builder->create_build_script;
+
+Note that you should add it to the `configure_requires` key as you should for any module used in a `Build.PL` file.
 
 =head1 SEE ALSO
 
