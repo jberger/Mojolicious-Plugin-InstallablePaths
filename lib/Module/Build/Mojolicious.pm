@@ -55,7 +55,7 @@ Module::Build::Mojolicious
 
 A subclass of L<Module::Build> for use with L<Mojolicious>. There are no additional API features beyond the base class. See L<Mojolicious::Plugin::ModuleBuild> for more documentation.
 
-Note that you should add it to the `configure_requires` key as you should for any module used in a `Build.PL` file.
+Note that you should add it to the C<configure_requires> key as you should for any module used in a C<Build.PL> file.
 
 =head1 SOURCE REPOSITORY
 

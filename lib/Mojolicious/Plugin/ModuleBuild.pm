@@ -142,7 +142,7 @@ Included with L<Mojolicious::Plugin::ModuleBuild> is a subclass of L<Module::Bui
  );
  $builder->create_build_script;
 
-Note that you should add it to the `configure_requires` key as you should for any module used in a `Build.PL` file.
+Note that you should add it to the C<configure_requires> key as you should for any module used in a C<Build.PL> file.
 
 =head1 SEE ALSO
 
