@@ -12,6 +12,7 @@ t/lib/MyTest/App/files/public/test.html
 t/myblib/lib/auto/share/dist/MyTest-App/public/test.html
 t/myblib/lib/MyTest/App.pm
 t/plugin.t
+t/plugin_module_not_loaded.t
 t/plugin_myblib.t
 t/test_app.t
 t/test_app_myblib.t

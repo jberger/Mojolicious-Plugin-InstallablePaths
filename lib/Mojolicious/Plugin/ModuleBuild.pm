@@ -18,9 +18,12 @@ has 'dist_dir' => sub {
 
 has 'class_path' => sub {
   my $self = shift;
-  my $class_path = $self->app_class;
+  my $app_class = $self->app_class;
+  my $class_path = $app_class;
   $class_path =~ s{::}{/}g;
-  $class_path = $INC{"$class_path.pm"};
+
+  $class_path = $INC{"$class_path.pm"} 
+    || die "Cannot find $class_path.pm, do you need to load $app_class?\n";;
   $class_path =~ s/\.pm$//;
   return $class_path;
 };
