@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use lib 't/blib/lib';
+use lib 't/myblib/lib';
 
 use Test::More;
 use Test::Mojo;

@@ -3,7 +3,7 @@ use warnings;
 
 use Test::More;
 
-use lib 't/blib/lib';
+use lib 't/myblib/lib';
 use MyTest::App;
 
 use Mojolicious::Plugin::ModuleBuild;
