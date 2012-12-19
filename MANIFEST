@@ -1,0 +1,15 @@
+Build.PL
+Changes
+lib/Module/Build/Mojolicious.pm
+lib/Mojolicious/Plugin/ModuleBuild.pm
+MANIFEST			This list of files
+META.json
+META.yml
+README.pod
+t/build.t
+t/lib/MyTest/App.pm
+t/lib/MyTest/App/files/public/test.html
+t/plugin.t
+t/plugin_blib.t
+t/test_app.t
+t/test_app_blib.t

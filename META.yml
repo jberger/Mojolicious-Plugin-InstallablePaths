@@ -1,0 +1,35 @@
+---
+abstract: 'Easy Module::Build configuration for Mojolicious apps'
+author:
+  - 'Joel Berger'
+build_requires: {}
+configure_requires:
+  Module::Build: 0.38
+dynamic_config: 1
+generated_by: 'Module::Build version 0.4, CPAN::Meta::Converter version 2.120921'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Mojolicious-Plugin-ModuleBuild
+no_index:
+  directory:
+    - t
+  file:
+    - README.pod
+provides:
+  Module::Build::Mojolicious:
+    file: lib/Module/Build/Mojolicious.pm
+    version: 0.01
+  Mojolicious::Plugin::ModuleBuild:
+    file: lib/Mojolicious/Plugin/ModuleBuild.pm
+    version: 0.01
+requires:
+  File::ShareDir: 1
+  Module::Build: 0.38
+  Mojolicious: 3
+resources:
+  bugtracker: http://github.com/jberger/Mojolicious-Plugin-ModuleBuild/issues
+  license: http://dev.perl.org/licenses/
+  repository: http://github.com/jberger/Mojolicious-Plugin-ModuleBuild
+version: 0.01
