@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "Mojolicious-Plugin-FileShareDir",
+   "name" : "Mojolicious-Plugin-InstallablePaths",
    "no_index" : {
       "directory" : [
          "t"
@@ -37,29 +37,25 @@
       }
    },
    "provides" : {
-      "File::ShareDir::Install::Mojolicious" : {
-         "file" : "lib/File/ShareDir/Install/Mojolicious.pm",
-         "version" : "0.02"
-      },
       "Module::Build::Mojolicious" : {
          "file" : "lib/Module/Build/Mojolicious.pm",
          "version" : "0.02"
       },
-      "Mojolicious::Plugin::FileShareDir" : {
-         "file" : "lib/Mojolicious/Plugin/FileShareDir.pm",
+      "Mojolicious::Plugin::InstallablePaths" : {
+         "file" : "lib/Mojolicious/Plugin/InstallablePaths.pm",
          "version" : "0.02"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "http://github.com/jberger/Mojolicious-Plugin-FileShareDir/issues"
+         "web" : "http://github.com/jberger/Mojolicious-Plugin-InstallablePaths/issues"
       },
       "license" : [
          "http://dev.perl.org/licenses/"
       ],
       "repository" : {
-         "url" : "http://github.com/jberger/Mojolicious-Plugin-FileShareDir"
+         "url" : "http://github.com/jberger/Mojolicious-Plugin-InstallablePaths"
       }
    },
    "version" : "0.02"

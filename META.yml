@@ -18,9 +18,6 @@ no_index:
   file:
     - README.pod
 provides:
-  File::ShareDir::Install::Mojolicious:
-    file: lib/File/ShareDir/Install/Mojolicious.pm
-    version: 0.02
   Module::Build::Mojolicious:
     file: lib/Module/Build/Mojolicious.pm
     version: 0.02
