@@ -20,13 +20,13 @@ no_index:
 provides:
   File::ShareDir::Install::Mojolicious:
     file: lib/File/ShareDir/Install/Mojolicious.pm
-    version: 0
+    version: 0.02
   Module::Build::Mojolicious:
     file: lib/Module/Build/Mojolicious.pm
-    version: 0.01
+    version: 0.02
   Mojolicious::Plugin::FileShareDir:
     file: lib/Mojolicious/Plugin/FileShareDir.pm
-    version: 0.01
+    version: 0.02
 requires:
   File::ShareDir: 1
   Module::Build: 0.38
@@ -36,4 +36,4 @@ resources:
   bugtracker: http://github.com/jberger/Mojolicious-Plugin-FileShareDir/issues
   license: http://dev.perl.org/licenses/
   repository: http://github.com/jberger/Mojolicious-Plugin-FileShareDir
-version: 0.01
+version: 0.02

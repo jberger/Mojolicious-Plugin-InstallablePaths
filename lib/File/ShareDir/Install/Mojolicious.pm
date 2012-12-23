@@ -3,6 +3,9 @@ package File::ShareDir::Install::Mojolicious;
 use strict;
 use warnings;
 
+our $VERSION = '0.02';
+$VERSION = eval $VERSION;
+
 use File::ShareDir::Install ();
 use File::Spec;
 
