@@ -6,15 +6,15 @@ chdir 't' or die 'Cannot chdir into t/';
 use Test::More;
 use Module::Build::Mojolicious;
 
+ok( ! Module::Build::Mojolicious->isa('Module::Build::CleanInstall'), 'not CleanInstall by default' );
+
+Module::Build::Mojolicious->import(clean_install => 1);
+
 my $build = Module::Build::Mojolicious->new(
   module_name => 'MyTest::App',
 );
 
-ok( ! $build->isa('Module::Build::CleanInstall'), 'not CleanInstall by default' );
-
-Module::Build::Mojolicious->import(clean_install => 1);
-
-ok( $build->isa('Module::Build::CleanInstall'), 'enable CleanInstall' );
+ok( $build->isa('Module::Build::CleanInstall'), 'CleanInstall enabled' );
 
 my $share_dir = $build->share_dir->{dist}[0];
 ok( $share_dir, 'share_dir populated' );
