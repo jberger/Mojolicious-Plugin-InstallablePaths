@@ -11,7 +11,7 @@ license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
-name: Mojolicious-Plugin-FileShareDir
+name: Mojolicious-Plugin-InstallablePaths
 no_index:
   directory:
     - t
@@ -24,8 +24,8 @@ provides:
   Module::Build::Mojolicious:
     file: lib/Module/Build/Mojolicious.pm
     version: 0.02
-  Mojolicious::Plugin::FileShareDir:
-    file: lib/Mojolicious/Plugin/FileShareDir.pm
+  Mojolicious::Plugin::InstallablePaths:
+    file: lib/Mojolicious/Plugin/InstallablePaths.pm
     version: 0.02
 requires:
   File::ShareDir: 1
@@ -33,7 +33,7 @@ requires:
   Module::Build::CleanInstall: 0.05
   Mojolicious: 3
 resources:
-  bugtracker: http://github.com/jberger/Mojolicious-Plugin-FileShareDir/issues
+  bugtracker: http://github.com/jberger/Mojolicious-Plugin-InstallablePaths/issues
   license: http://dev.perl.org/licenses/
-  repository: http://github.com/jberger/Mojolicious-Plugin-FileShareDir
+  repository: http://github.com/jberger/Mojolicious-Plugin-InstallablePaths
 version: 0.02

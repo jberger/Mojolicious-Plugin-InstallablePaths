@@ -1,6 +1,6 @@
 =head1 NAME
 
-Mojolicious::Plugin::FileShareDir - Easy installation configuration for Mojolicious apps
+Mojolicious::Plugin::InstallablePaths - Easy installation configuration for Mojolicious apps
 
 =head1 SYNOPSIS
 
@@ -10,11 +10,11 @@ Mojolicious::Plugin::FileShareDir - Easy installation configuration for Mojolici
 
  sub startup {
    my $app = shift;
-   $app->plugin( 'FileShareDir' );
+   $app->plugin( 'InstallablePaths' );
    ...
  }
 
-then
+then if using L<Module::Build>
 
  # Build.PL
  use Module::Build::Mojolicious;
@@ -27,24 +27,9 @@ then
  );
  $builder->create_build_script;
 
-or 
-
- # Makefile.PL
- use ExtUtils::MakeMaker;
- use File::ShareDir::Install::Mojolicious;
-
- WriteMakefile(
-   NAME => with_files 'MyTest::App',
-   CONFIGURE_REQUIRES => {
-     'File::ShareDir::Install::Mojolicious' => 0,
-     'ExtUtils::MakeMaker' => 0,
-   },
-   ...
- );
-
 =head1 DESCRIPTION
 
-L<Mojolicious> applications work nicely from a working directory, but once the app is bundled for installation some of the configuration gets a little bit tricky. Though some examples are shown in the L<Mojolicious> documentation, the process is still rather involved. However, L<Mojolicious::Plugin::FileShareDir> handles all the configuration for you (provided you follow a proscribed directory tree)!
+L<Mojolicious> applications work nicely from a working directory, but once the app is bundled for installation some of the configuration gets a little bit tricky. Though some examples are shown in the L<Mojolicious> documentation, the process is still rather involved. However, L<Mojolicious::Plugin::InstallablePaths> handles all the configuration for you (provided you follow a proscribed directory tree)!
 
 =head1 DIRECTORY STRUCTURE
 
@@ -69,21 +54,23 @@ L<Mojolicious> applications work nicely from a working directory, but once the a
 
 As you can see, all non-module content is placed inside a directory named C<files> directly inside the folder named for the module. In the above example this is the C<lib/MyApp/files/> directory. If the app had been C<Some::App> then the directory would be C<lib/Some/App/files/>.
 
-If it exists, this folder is automatically added to the list of shared directories installed by the appropriate build-chain's L<File::ShareDir> integration (see below). Later, this directory can be found using the usual mechanisms that that system provides.
-
 There is no allowance for different names of these folders nor of different locations for them relative to the main module. Patches will be considered, but the primary purpose of this module is the simple generic case; to do strange things the Mojolicious path manipulation system should be used directly.
 
 =head1 PLUGIN
 
-The magic happens when your app loads the C<FileShareDir> plugin.
+The magic happens when your app loads the C<InstallablePaths> plugin.
 
- $app->plugin('FileShareDir');
+ $app->plugin('InstallablePaths');
 
 Before this call, the directories are not set correctly, so be sure to use it early! The plugin will detect if the directory tree exists as above (i.e. before installation) and use it directly or else it will attempt to use the L<File::ShareDir> system to locate the directories (i.e. after installation). In this way, your app should always find its needed files, no matter what phase of development or installation!
 
+=head1 MAKEFILE.PL SCRIPT
+
+When using L<ExtUtils::MakeMaker> the files are installed directly and the plugin finds them from the main tree. Just install as usual.
+
 =head1 BUILD.PL SCRIPT
 
-Included with L<Mojolicious::Plugin::FileShareDir> is a subclass of L<Module::Build> named L<Module::Build::Mojolicious> (of course). The purpose of this subclass is to add the necessary directory to the list of shared folders. This is done completely behind the scenes, provided the directory exists. Simply change the name of your build module and use as normal:
+If L<Module::Build> is more your flavor (it is mine), included with L<Mojolicious::Plugin::InstallablePaths> is a subclass of L<Module::Build> named L<Module::Build::Mojolicious> (of course). The purpose of this subclass is to add the necessary directory to the list of shared folders using the L<File::ShareDir> integration. This is done completely behind the scenes, provided the directory exists. Simply change the name of your build module and use as normal:
 
  use Module::Build::Mojolicious;
  my $builder = Module::Build::Mojolicious->new(
@@ -95,48 +82,29 @@ Included with L<Mojolicious::Plugin::FileShareDir> is a subclass of L<Module::Bu
  );
  $builder->create_build_script;
 
-=head1 MAKEFILE.PL SCRIPT
-
-If L<ExtUtils::MakeMaker> is more you flavor, also included is L<File::ShareDir::Install::Mojolicious> which is a wrapper of L<File::ShareDir::Install> for use with L<Mojolicious>. See L<Mojolicious::Plugin::FileShareDir> for more documentation.
-
-This module exports the function C<with_files> which takes exactly one argument, the name of the module to be installed. This then sets up the necessary information that L<File::ShareDir::Install> needs for installing the non-module content via L<File::ShareDir>.
-
-Note that C<with_files> returns the name that was given as an argument, so that it can be inlined in the definition of C<NAME> during the call to C<WriteMakefile()> (see L</SYNOPSIS>).
-
- # Makefile.PL
- use ExtUtils::MakeMaker;
- use File::ShareDir::Install::Mojolicious;
-
- WriteMakefile(
-   NAME => with_files 'MyTest::App',
-   CONFIGURE_REQUIRES => {
-     'File::ShareDir::Install::Mojolicious' => 0,
-     'ExtUtils::MakeMaker' => 0,
-   },
-   ...
- );
-
-=head1 KEEP IN MIND
-
-Remember that since the install-time helpers are needed by C<Build.PL> or C<MakeFile.PL>, C<Module::Build::Mojolicious> or C<File::ShareDir::Install::Mojolicious> needs to be added to the C<configure_requires> or C<CONFIGURE_REQUIRES> hash respectively. This tells your CPAN installer that those modules must be available before the script can be run. This should be done for any module used within those build scripts.
+Later, this directory can be found using the usual mechanisms that that L<File::ShareDir> provides. Keep in mind that you should add it to the C<configure_requires> key as you should for any module used in a C<Build.PL> file.
 
 =head1 SEE ALSO
 
 =over
 
+=item * 
+
+L<Mojolicious>
+
 =item *
 
 L<Module::Build>
 
-=item * 
+=item *
 
-L<Mojolicious>
+L<ExtUtils::MakeMaker>
 
 =back
 
 =head1 SOURCE REPOSITORY
 
-L<http://github.com/jberger/Mojolicious-Plugin-FileShareDir>
+L<http://github.com/jberger/Mojolicious-Plugin-InstallablePaths>
 
 =head1 AUTHOR
 

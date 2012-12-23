@@ -4,7 +4,7 @@ use warnings;
 use Module::Build;
 
 my $builder = Module::Build->new(
-  module_name => 'Mojolicious::Plugin::FileShareDir',
+  module_name => 'Mojolicious::Plugin::InstallablePaths',
   dist_author => 'Joel Berger',
   requires => {
     'Mojolicious'    => 3,
@@ -18,8 +18,8 @@ my $builder = Module::Build->new(
   license => 'perl',
   meta_merge => {
     resources  => {
-      repository => "http://github.com/jberger/Mojolicious-Plugin-FileShareDir",
-      bugtracker => "http://github.com/jberger/Mojolicious-Plugin-FileShareDir/issues",
+      repository => "http://github.com/jberger/Mojolicious-Plugin-InstallablePaths",
+      bugtracker => "http://github.com/jberger/Mojolicious-Plugin-InstallablePaths/issues",
     },
     no_index => {
       file      => [ 'README.pod' ],
