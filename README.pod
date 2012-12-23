@@ -103,6 +103,19 @@ This module exports the function C<with_files> which takes exactly one argument,
 
 Note that C<with_files> returns the name that was given as an argument, so that it can be inlined in the definition of C<NAME> during the call to C<WriteMakefile()> (see L</SYNOPSIS>).
 
+ # Makefile.PL
+ use ExtUtils::MakeMaker;
+ use File::ShareDir::Install::Mojolicious;
+
+ WriteMakefile(
+   NAME => with_files 'MyTest::App',
+   CONFIGURE_REQUIRES => {
+     'File::ShareDir::Install::Mojolicious' => 0,
+     'ExtUtils::MakeMaker' => 0,
+   },
+   ...
+ );
+
 =head1 KEEP IN MIND
 
 Remember that since the install-time helpers are needed by C<Build.PL> or C<MakeFile.PL>, C<Module::Build::Mojolicious> or C<File::ShareDir::Install::Mojolicious> needs to be added to the C<configure_requires> or C<CONFIGURE_REQUIRES> hash respectively. This tells your CPAN installer that those modules must be available before the script can be run. This should be done for any module used within those build scripts.
