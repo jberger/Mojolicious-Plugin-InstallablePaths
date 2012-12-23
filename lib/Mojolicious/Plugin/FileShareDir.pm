@@ -81,6 +81,8 @@ Mojolicious::Plugin::FileShareDir - Easy installation configuration for Mojolici
    ...
  }
 
+then
+
  # Build.PL
  use Module::Build::Mojolicious;
  my $builder = Module::Build::Mojolicious->new(
@@ -109,7 +111,7 @@ or
 
 =head1 DESCRIPTION
 
-L<Mojolicious> applications work nicely from a working directory, but once the app is bundled for installation some of the configuration gets a little bit tricky. Though some examples are shown in the L<Mojolicious> documentation, the process is still rather involved. However, when using L<Module::Build> this module handles all the configuration for you (provided you follow a proscribed directory tree)!
+L<Mojolicious> applications work nicely from a working directory, but once the app is bundled for installation some of the configuration gets a little bit tricky. Though some examples are shown in the L<Mojolicious> documentation, the process is still rather involved. However, L<Mojolicious::Plugin::FileShareDir> handles all the configuration for you (provided you follow a proscribed directory tree)!
 
 =head1 DIRECTORY STRUCTURE
 
@@ -134,7 +136,7 @@ L<Mojolicious> applications work nicely from a working directory, but once the a
 
 As you can see, all non-module content is placed inside a directory named C<files> directly inside the folder named for the module. In the above example this is the C<lib/MyApp/files/> directory. If the app had been C<Some::App> then the directory would be C<lib/Some/App/files/>.
 
-If it exists, this folder is automatically added to the list of shared directories installed by Module::Build's L<File::ShareDir> integration. Later, this directory can be found using the usual mechanisms that that system provides.
+If it exists, this folder is automatically added to the list of shared directories installed by the appropriate build-chain's L<File::ShareDir> integration (see below). Later, this directory can be found using the usual mechanisms that that system provides.
 
 There is no allowance for different names of these folders nor of different locations for them relative to the main module. Patches will be considered, but the primary purpose of this module is the simple generic case; to do strange things the Mojolicious path manipulation system should be used directly.
 
