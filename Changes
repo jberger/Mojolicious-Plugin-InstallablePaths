@@ -1,6 +1,7 @@
-Revision history for Perl module Mojolicious::Plugin::ModuleBuild.
+Revision history for Perl module Mojolicious::Plugin::InstallablePaths.
 
 0.02  December 23, 2012
+	- Changed name to ::InstallablePaths (from ::ModuleBuild)
 	- Added comment on EUMM support
 	- Add Module::Build::CleanInstall support
 
