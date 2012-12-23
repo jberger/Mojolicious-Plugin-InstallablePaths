@@ -1,4 +1,4 @@
-package Mojolicious::Plugin::ModuleBuild;
+package Mojolicious::Plugin::FileShareDir;
 use Mojo::Base 'Mojolicious::Plugin';
 
 our $VERSION = '0.01';
@@ -67,7 +67,7 @@ sub find_path {
 
 =head1 NAME
 
-Mojolicious::Plugin::ModuleBuild - Easy Module::Build configuration for Mojolicious apps
+Mojolicious::Plugin::FileShareDir - Easy installation configuration for Mojolicious apps
 
 =head1 SYNOPSIS
 
@@ -77,7 +77,7 @@ Mojolicious::Plugin::ModuleBuild - Easy Module::Build configuration for Mojolici
 
  sub startup {
    my $app = shift;
-   $app->plugin( 'ModuleBuild' );
+   $app->plugin( 'FileShareDir' );
    ...
  }
 
@@ -91,6 +91,21 @@ Mojolicious::Plugin::ModuleBuild - Easy Module::Build configuration for Mojolici
    ...
  );
  $builder->create_build_script;
+
+or 
+
+ # Makefile.PL
+ use ExtUtils::MakeMaker;
+ use File::ShareDir::Install::Mojolicious;
+
+ WriteMakefile(
+   NAME => with_files 'MyTest::App',
+   CONFIGURE_REQUIRES => {
+     'File::ShareDir::Install::Mojolicious' => 0,
+     'ExtUtils::MakeMaker' => 0,
+   },
+   ...
+ );
 
 =head1 DESCRIPTION
 
@@ -125,15 +140,15 @@ There is no allowance for different names of these folders nor of different loca
 
 =head1 PLUGIN
 
-The magic happens when your app loads the C<ModuleBuild> plugin.
+The magic happens when your app loads the C<FileShareDir> plugin.
 
- $app->plugin('ModuleBuild');
+ $app->plugin('FileShareDir');
 
 Before this call, the directories are not set correctly, so be sure to use it early! The plugin will detect if the directory tree exists as above (i.e. before installation) and use it directly or else it will attempt to use the L<File::ShareDir> system to locate the directories (i.e. after installation). In this way, your app should always find its needed files, no matter what phase of development or installation!
 
-=head1 BUILD SCRIPT
+=head1 BUILD.PL SCRIPT
 
-Included with L<Mojolicious::Plugin::ModuleBuild> is a subclass of L<Module::Build> named L<Module::Build::Mojolicious> (of course). The purpose of this subclass is to add the necessary directory to the list of shared folders. This is done completely behind the scenes, provided the directory exists. Simply change the name of your build module and use as normal:
+Included with L<Mojolicious::Plugin::FileShareDir> is a subclass of L<Module::Build> named L<Module::Build::Mojolicious> (of course). The purpose of this subclass is to add the necessary directory to the list of shared folders. This is done completely behind the scenes, provided the directory exists. Simply change the name of your build module and use as normal:
 
  use Module::Build::Mojolicious;
  my $builder = Module::Build::Mojolicious->new(
@@ -145,7 +160,17 @@ Included with L<Mojolicious::Plugin::ModuleBuild> is a subclass of L<Module::Bui
  );
  $builder->create_build_script;
 
-Note that you should add it to the C<configure_requires> key as you should for any module used in a C<Build.PL> file.
+=head1 MAKEFILE.PL SCRIPT
+
+If L<ExtUtils::MakeMaker> is more you flavor, also included is L<File::ShareDir::Install::Mojolicious> which is a wrapper of L<File::ShareDir::Install> for use with L<Mojolicious>. See L<Mojolicious::Plugin::FileShareDir> for more documentation.
+
+This module exports the function C<with_files> which takes exactly one argument, the name of the module to be installed. This then sets up the necessary information that L<File::ShareDir::Install> needs for installing the non-module content via L<File::ShareDir>.
+
+Note that C<with_files> returns the name that was given as an argument, so that it can be inlined in the definition of C<NAME> during the call to C<WriteMakefile()> (see L</SYNOPSIS>).
+
+=head1 KEEP IN MIND
+
+Remember that since the install-time helpers are needed by C<Build.PL> or C<MakeFile.PL>, C<Module::Build::Mojolicious> or C<File::ShareDir::Install::Mojolicious> needs to be added to the C<configure_requires> or C<CONFIGURE_REQUIRES> hash respectively. This tells your CPAN installer that those modules must be available before the script can be run. This should be done for any module used within those build scripts.
 
 =head1 SEE ALSO
 
@@ -163,7 +188,7 @@ L<Mojolicious>
 
 =head1 SOURCE REPOSITORY
 
-L<http://github.com/jberger/Mojolicious-Plugin-ModuleBuild>
+L<http://github.com/jberger/Mojolicious-Plugin-FileShareDir>
 
 =head1 AUTHOR
 

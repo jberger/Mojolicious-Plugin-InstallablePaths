@@ -69,7 +69,7 @@ Module::Build::Mojolicious
 
 =head1 DESCRIPTION
 
-A subclass of L<Module::Build> for use with L<Mojolicious>. See L<Mojolicious::Plugin::ModuleBuild> for more documentation.
+A subclass of L<Module::Build> for use with L<Mojolicious>. See L<Mojolicious::Plugin::FileShareDir> for more documentation.
 
 Note that you should add it to the C<configure_requires> key as you should for any module used in a C<Build.PL> file.
 
@@ -79,7 +79,7 @@ Unless imported with the option C<< clean_install => 0 >>, L<Module::Build::Clea
 
 =head1 SOURCE REPOSITORY
 
-L<http://github.com/jberger/Mojolicious-Plugin-ModuleBuild>
+L<http://github.com/jberger/Mojolicious-Plugin-FileShareDir>
 
 =head1 AUTHOR
 

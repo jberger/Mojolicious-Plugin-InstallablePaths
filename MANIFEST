@@ -1,12 +1,14 @@
 Build.PL
 Changes
+lib/File/ShareDir/Install/Mojolicious.pm
 lib/Module/Build/Mojolicious.pm
-lib/Mojolicious/Plugin/ModuleBuild.pm
+lib/Mojolicious/Plugin/FileShareDir.pm
 MANIFEST			This list of files
 META.json
 META.yml
 README.pod
 t/build.t
+t/eumm.t
 t/lib/MyTest/App.pm
 t/lib/MyTest/App/files/public/test.html
 t/myblib/lib/auto/share/dist/MyTest-App/public/test.html

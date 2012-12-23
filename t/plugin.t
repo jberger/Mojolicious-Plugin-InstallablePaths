@@ -6,8 +6,8 @@ use Test::More;
 use lib 't/lib';
 use MyTest::App;
 
-use Mojolicious::Plugin::ModuleBuild;
-my $plugin = Mojolicious::Plugin::ModuleBuild->new( app_class => 'MyTest::App' );
+use Mojolicious::Plugin::FileShareDir;
+my $plugin = Mojolicious::Plugin::FileShareDir->new( app_class => 'MyTest::App' );
 
 isa_ok $plugin, 'Mojolicious::Plugin';
 

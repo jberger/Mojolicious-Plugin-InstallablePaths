@@ -78,7 +78,7 @@ or chained
 
 =head1 DESCRIPTION
 
-A wrapper of L<File::ShareDir::Install> for use with L<Mojolicious>. See L<Mojolicious::Plugin::ModuleBuild> for more documentation.
+A wrapper of L<File::ShareDir::Install> for use with L<Mojolicious>. See L<Mojolicious::Plugin::FileShareDir> for more documentation.
 
 Note that you should add it to the C<CONFIGURE_REQUIRES> key as you should for any module used in a C<Makefile.PL> file.
 
@@ -94,7 +94,7 @@ Note that C<with_files> returns the name that was given as an argument, so that 
 
 =head1 SOURCE REPOSITORY
 
-L<http://github.com/jberger/Mojolicious-Plugin-ModuleBuild>
+L<http://github.com/jberger/Mojolicious-Plugin-FileShareDir>
 
 =head1 AUTHOR
 

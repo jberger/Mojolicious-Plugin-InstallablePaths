@@ -4,7 +4,7 @@ our @VERSION = 1;
 
 sub startup {
   my $self = shift;
-  $self->plugin( 'ModuleBuild' );
+  $self->plugin( 'FileShareDir' );
   $self->routes->any( '/' => sub{ shift->render_static('test.html') } );
 }
 

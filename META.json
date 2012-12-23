@@ -1,5 +1,5 @@
 {
-   "abstract" : "Easy Module::Build configuration for Mojolicious apps",
+   "abstract" : "Easy installation configuration for Mojolicious apps",
    "author" : [
       "Joel Berger"
    ],
@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "Mojolicious-Plugin-ModuleBuild",
+   "name" : "Mojolicious-Plugin-FileShareDir",
    "no_index" : {
       "directory" : [
          "t"
@@ -31,30 +31,35 @@
          "requires" : {
             "File::ShareDir" : "1",
             "Module::Build" : "0.38",
+            "Module::Build::CleanInstall" : "0.05",
             "Mojolicious" : "3"
          }
       }
    },
    "provides" : {
+      "File::ShareDir::Install::Mojolicious" : {
+         "file" : "lib/File/ShareDir/Install/Mojolicious.pm",
+         "version" : 0
+      },
       "Module::Build::Mojolicious" : {
          "file" : "lib/Module/Build/Mojolicious.pm",
          "version" : "0.01"
       },
-      "Mojolicious::Plugin::ModuleBuild" : {
-         "file" : "lib/Mojolicious/Plugin/ModuleBuild.pm",
+      "Mojolicious::Plugin::FileShareDir" : {
+         "file" : "lib/Mojolicious/Plugin/FileShareDir.pm",
          "version" : "0.01"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "http://github.com/jberger/Mojolicious-Plugin-ModuleBuild/issues"
+         "web" : "http://github.com/jberger/Mojolicious-Plugin-FileShareDir/issues"
       },
       "license" : [
          "http://dev.perl.org/licenses/"
       ],
       "repository" : {
-         "url" : "http://github.com/jberger/Mojolicious-Plugin-ModuleBuild"
+         "url" : "http://github.com/jberger/Mojolicious-Plugin-FileShareDir"
       }
    },
    "version" : "0.01"
