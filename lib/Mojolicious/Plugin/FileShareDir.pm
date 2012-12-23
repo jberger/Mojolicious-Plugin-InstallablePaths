@@ -120,7 +120,7 @@ L<Mojolicious> applications work nicely from a working directory, but once the a
  |  +- myapp                        # Application script
  |- lib                             # Library directory
  |  |- MyApp.pm                     # Application class
- |  |- MyApp                        # Application namespace
+ |  +- MyApp                        # Application namespace
  |     |- Example.pm                # Controller class
  |     +- files                     # Shared directory for all non-module content
  |        |- public                 # Static file directory (served automatically)
