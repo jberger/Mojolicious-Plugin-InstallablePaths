@@ -17,7 +17,7 @@ Mojolicious::Plugin::InstallablePaths - Easy installation configuration for Mojo
 then if using L<Module::Build>
 
  # Build.PL
- use Module::Build::Mojolicious;
+ use Module::Build::Mojolicious clean_install => 1;
  my $builder = Module::Build::Mojolicious->new(
    configure_requires => {
      'Module::Build::Mojolicious' => 0,
@@ -72,7 +72,7 @@ When using L<ExtUtils::MakeMaker> the files are installed directly and the plugi
 
 If L<Module::Build> is more your flavor (it is mine), included with L<Mojolicious::Plugin::InstallablePaths> is a subclass of L<Module::Build> named L<Module::Build::Mojolicious> (of course). The purpose of this subclass is to add the necessary directory to the list of shared folders using the L<File::ShareDir> integration. This is done completely behind the scenes, provided the directory exists. Simply change the name of your build module and use as normal:
 
- use Module::Build::Mojolicious;
+ use Module::Build::Mojolicious clean_install => 1;
  my $builder = Module::Build::Mojolicious->new(
    configure_requires => {
      'Module::Build::Mojolicious' => 0,
@@ -83,6 +83,8 @@ If L<Module::Build> is more your flavor (it is mine), included with L<Mojoliciou
  $builder->create_build_script;
 
 Later, this directory can be found using the usual mechanisms that that L<File::ShareDir> provides. Keep in mind that you should add it to the C<configure_requires> key as you should for any module used in a C<Build.PL> file.
+
+Finally note that if passing C<< clean_install => 1 >> at import, L<Module::Build::CleanInstall> will be inserted into the inheritance tree at import time. This module ensures that old files are removed before upgrading an already installed module. The author recommends this option be enabled.
 
 =head1 SEE ALSO
 

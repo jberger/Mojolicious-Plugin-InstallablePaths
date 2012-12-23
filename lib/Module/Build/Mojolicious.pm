@@ -10,7 +10,7 @@ use File::Spec;
 use Module::Build;
 our @ISA = 'Module::Build';
 
-our $Clean_Install = 1;
+our $Clean_Install = 0;
 
 sub import {
   my $class = shift;
@@ -57,7 +57,7 @@ Module::Build::Mojolicious
 =head1 SYNOPSIS
 
  # Build.PL
- use Module::Build::Mojolicious;
+ use Module::Build::Mojolicious clean_install => 1;
  my $builder = Module::Build::Mojolicious->new(
    configure_requires => {
      'Module::Build::Mojolicious' => 0,
@@ -75,7 +75,7 @@ Note that you should add it to the C<configure_requires> key as you should for a
 
 =head1 OPTIONS
 
-Unless imported with the option C<< clean_install => 0 >>, L<Module::Build::CleanInstall> will be inserted into the inheritance tree at import time. This module ensures that old files are removed before upgrading an already installed module.
+If imported with the option C<< clean_install => 1 >>, L<Module::Build::CleanInstall> will be inserted into the inheritance tree at import time. This module ensures that old files are removed before upgrading an already installed module. The author recommends this option be enabled.
 
 =head1 SOURCE REPOSITORY
 

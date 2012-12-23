@@ -1,8 +1,7 @@
 Revision history for Perl module Mojolicious::Plugin::ModuleBuild.
 
 0.02  December 23, 2012
-	- Added File::ShareDir::Install::Mojolicious
-		- EUMM support
+	- Added comment on EUMM support
 	- Add Module::Build::CleanInstall support
 
 0.01  December 19, 2012
