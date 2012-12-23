@@ -10,6 +10,7 @@ my $builder = Module::Build->new(
     'Mojolicious'    => 3,
     'File::ShareDir' => 1,
     'Module::Build'  => 0.38,
+    'Module::Build::CleanInstall' => 0.05,
   },
   configure_requires => {
     'Module::Build' => 0.38,

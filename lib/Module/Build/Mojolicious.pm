@@ -6,9 +6,25 @@ use warnings;
 our $VERSION = '0.01';
 $VERSION = eval $VERSION;
 
-use parent 'Module::Build';
-
 use File::Spec;
+use Module::Build;
+our @ISA = 'Module::Build';
+
+our $Clean_Install = 1;
+
+sub import {
+  my $class = shift;
+  my %args = ref $_[0] ? %{ shift() } : @_;
+
+  if (defined $args{clean_install}) {
+    $Clean_Install = $args{clean_install};
+  }
+
+  if ($Clean_Install) {
+    require Module::Build::CleanInstall;
+    @ISA = 'Module::Build::CleanInstall';
+  } 
+}
 
 sub share_dir {
   my $self = shift;
@@ -56,6 +72,10 @@ Module::Build::Mojolicious
 A subclass of L<Module::Build> for use with L<Mojolicious>. There are no additional API features beyond the base class. See L<Mojolicious::Plugin::ModuleBuild> for more documentation.
 
 Note that you should add it to the C<configure_requires> key as you should for any module used in a C<Build.PL> file.
+
+=head1 OPTIONS
+
+Unless imported with the option C<< clean_install => 0 >>, L<Module::Build::CleanInstall> will be inserted into the inheritance tree at import time. This module ensures that old files are removed before upgrading an already installed module.
 
 =head1 SOURCE REPOSITORY
 
