@@ -10,6 +10,12 @@ my $build = Module::Build::Mojolicious->new(
   module_name => 'MyTest::App',
 );
 
+ok( ! $build->isa('Module::Build::CleanInstall'), 'not CleanInstall by default' );
+
+Module::Build::Mojolicious->import(clean_install => 1);
+
+ok( $build->isa('Module::Build::CleanInstall'), 'enable CleanInstall' );
+
 my $share_dir = $build->share_dir->{dist}[0];
 ok( $share_dir, 'share_dir populated' );
 ok( -d $share_dir, 'share_dir populated correctly' );
