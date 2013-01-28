@@ -3,7 +3,7 @@ package Module::Build::Mojolicious;
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 $VERSION = eval $VERSION;
 
 use File::Spec;
@@ -30,7 +30,7 @@ sub share_dir {
   my $self = shift;
   my $share_dir = $self->SUPER::share_dir(@_);
 
-  unless ( $self->notes( 'mojolicicious_added' ) ) {
+  unless ( $self->notes( 'mojolicious_added' ) ) {
 
     my $path = File::Spec->catdir( 
       $self->base_dir, 'lib', split( /::/, $self->module_name ), 'files'

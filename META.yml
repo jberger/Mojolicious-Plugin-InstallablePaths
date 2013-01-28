@@ -20,10 +20,10 @@ no_index:
 provides:
   Module::Build::Mojolicious:
     file: lib/Module/Build/Mojolicious.pm
-    version: 0.02
+    version: 0.03
   Mojolicious::Plugin::InstallablePaths:
     file: lib/Mojolicious/Plugin/InstallablePaths.pm
-    version: 0.02
+    version: 0.03
 requires:
   File::ShareDir: 1
   Module::Build: 0.38
@@ -33,4 +33,4 @@ resources:
   bugtracker: http://github.com/jberger/Mojolicious-Plugin-InstallablePaths/issues
   license: http://dev.perl.org/licenses/
   repository: http://github.com/jberger/Mojolicious-Plugin-InstallablePaths
-version: 0.02
+version: 0.03

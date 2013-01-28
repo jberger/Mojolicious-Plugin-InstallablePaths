@@ -39,11 +39,11 @@
    "provides" : {
       "Module::Build::Mojolicious" : {
          "file" : "lib/Module/Build/Mojolicious.pm",
-         "version" : "0.02"
+         "version" : "0.03"
       },
       "Mojolicious::Plugin::InstallablePaths" : {
          "file" : "lib/Mojolicious/Plugin/InstallablePaths.pm",
-         "version" : "0.02"
+         "version" : "0.03"
       }
    },
    "release_status" : "stable",
@@ -58,5 +58,5 @@
          "url" : "http://github.com/jberger/Mojolicious-Plugin-InstallablePaths"
       }
    },
-   "version" : "0.02"
+   "version" : "0.03"
 }
