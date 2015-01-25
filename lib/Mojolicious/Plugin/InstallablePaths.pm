@@ -1,7 +1,7 @@
 package Mojolicious::Plugin::InstallablePaths;
 use Mojo::Base 'Mojolicious::Plugin';
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 $VERSION = eval $VERSION;
 
 use File::Spec;

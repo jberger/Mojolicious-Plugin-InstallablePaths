@@ -9,7 +9,7 @@ sub startup {
   $self->routes->any( '/' => sub{
       my $self = shift;
 
-      if ( Mojolicious->VERSION() >= 5.69 ) {
+      if ( Mojolicious->VERSION() >= 5.41 ) {
           $self->reply->static('test.html');
       }
       else {
